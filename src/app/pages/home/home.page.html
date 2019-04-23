@@ -1,0 +1,81 @@
+<ion-header>
+    <ion-toolbar color="primary" class="toolbar">
+      <ion-label >Home</ion-label>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <ion-buttons>
+    <ion-button  expand="block" 
+    fill="clear" routerLink="/home" class="buttonHome" ><ion-icon name="home"></ion-icon>Home</ion-button>
+
+    <ion-button expand="full"
+    fill="clear" routerLink="/about" class="buttonAbout"><ion-icon name="information-circle"></ion-icon>About</ion-button>
+
+    <ion-button  expand="block"
+    fill="clear" routerLink="/settings" class="buttonSettings"><ion-icon name="cog"></ion-icon>Settings</ion-button>
+
+  </ion-buttons>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" class="searchBar" placeholder="
+    Enter title" class="searchBar"></ion-searchbar>
+   
+    <ion-item>
+      <ion-label>Select Searchtype</ion-label>
+      <ion-select [(ngModel)]="type" (ionChange)="searchChanged($event)">
+        <ion-select-option value="">All</ion-select-option>
+        <ion-select-option value="movie">Movie</ion-select-option>
+        <ion-select-option value="series">Series</ion-select-option>
+        <ion-select-option value="episode">Episode</ion-select-option>
+      </ion-select>
+    </ion-item>
+   
+    <ion-list>
+   
+      <ion-item button *ngFor="let item of (results | async)" routerLink="['/', 'movies', item.imdbID]">
+        <ion-avatar slot="start">
+          <img [src]="item.Poster" *ngIf="item.Poster != 'N/A'">
+        </ion-avatar>
+   
+        <ion-label text-wrap>
+          <h3>{{ item.Title }}</h3>
+          {{ item.Year }}
+        </ion-label>
+   
+        <ion-icon slot="end" *ngIf="item.Type == 'movie'" name="videocam"></ion-icon>
+        <ion-icon slot="end" *ngIf="item.Type == 'series'" name="tv"></ion-icon>
+        <ion-icon slot="end" *ngIf="item.Type == 'game'" name="logo-game-controller-b"></ion-icon>
+   
+      </ion-item>
+   
+    </ion-list> 
+</ion-content>
+
+
+
+ 
+ 
+
+ <!-- 
+<ion-tabs tabsPlacement="bottom">  
+    <ion-tab-bar >
+      <ion-tab-button tab="home" routerLink='/home' routerDirection="root">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Home</ion-label>
+        <ion-badge>6</ion-badge>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="about" routerLink='/about' routerDirection="root">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>About</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="settings" routerLink='/settings' routerDirection="root">
+        <ion-icon name="cog"></ion-icon>
+        <ion-label>Settings</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>-->
+  
+
+
