@@ -26,3 +26,125 @@
 .toolbar{
     text-align: center;
 }
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.container {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  animation: clouds 5000ms infinite;
+  background-image: linear-gradient(to bottom, transparent, rgba(196, 222, 255, 0.623)), url(../../../assets/images/day-clear-clouds.jpeg);
+  -webkit-animation: clouds 200s linear infinite;
+}
+
+.container-night {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  animation: clouds 5000ms infinite;
+  background-image: linear-gradient(to bottom, transparent, rgba(196, 222, 255, 0.623)), url(../../../assets/images/clouds-ight.jpg);
+  -webkit-animation: clouds 200s linear infinite;
+}
+
+// // Background Animation
+// @-webkit-keyframes clouds {
+//   from { background-position: -400px 1px }
+//   to { background-position: 0 0 }
+// }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.city {
+  margin-top: 1.2em;
+  font-size: 3.2em;
+  font-weight: bolder;
+}
+
+.condition {
+  margin-top: .5em;
+  font-size: 2em;
+}
+
+.temp {
+  margin-top: .3em;
+  font-size: 5em;
+}
+
+.data {
+  display: flex;
+  justify-content: flex-start;
+  margin: 3em 1em;
+  justify-content: space-between;
+  font-size: 1.5em;
+  transform: translateY(-2em);
+}
+
+.line {
+  margin: -5.8em auto 0;
+  height: .2em;
+  background: white;
+  width: 95%;
+}
+
+.info {
+  margin: .5em 1em;
+}
+
+.label {
+  display: flex;
+  justify-content: space-around;
+  height: 2em;
+  align-items: center;
+  margin-left: 1.3em;
+  margin-bottom: 1.1em;
+}
+
+.label p{
+  width: 10em;
+}
+
+.infoName {
+  display: flex;
+  justify-content: space-around;
+  height: 2em;
+  align-items: center;
+  margin-left: 1.3em;
+}
+
+.infoName p {
+  font-size: 1.5em;
+  width: 10em;
+}
+
+.bottomLine {
+  height: .25em;
+  background: white;
+  width: 95%;
+  margin: 1em auto;
+}
+
+.changeBtn {
+  display: block;
+  position: relative;
+  left: 80%;
+  bottom: 9px;
+}
+
+.unit {
+  position: relative;
+  transform: translateX(-1.5em);
+  font-size: .2em;
+}
+
+
+@media only screen and (min-width: 400px) {
+  .notMobile {
+    margin: 0 auto;
+    position: relative;
+    width: 99%;
+    background: -webkit-linear-gradient(-45deg, #f6f8f9 0%,#cbd0d3 50%,#979b9e 51%,#8b8e91 100%);
+    box-shadow: 2px 2px 10px gray;
+  }
+}

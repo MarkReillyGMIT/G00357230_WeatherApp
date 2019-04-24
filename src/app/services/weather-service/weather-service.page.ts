@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 
 export enum SearchType {
@@ -16,37 +16,19 @@ export enum SearchType {
 })
 
 export class WeatherServicePage {
-  url = 'http://www.omdbapi.com/';
-  apiKey = '2e3b3ab9'; // <-- Enter your own key here!
- 
-  /**
-   * Constructor of the Service with Dependency Injection
-   * @param http The standard Angular HttpClient to make requests
-   */
-  constructor(private http: HttpClient) { }
- 
-  /**
-  * Get data from the OmdbApi 
-  * map the result to return only the results that we need
-  * 
-  * 
-  * @param {string} title Search Term
-  * @param {SearchType} type movie, series, episode or empty
-  * @returns Observable with the search results
-  */
-  searchData(title: string, type: SearchType): Observable<any> {
-    return this.http.get(`${this.url}?s=${encodeURI(title)}&type=${type}&apikey=${this.apiKey}`).pipe(
-      map(results => results['Search'])
-    );
+  apiKey = 'a2d9b007fdbb806721588a833477b7e6';
+  url = 'https://api.openweathermap.org/data/2.5/weather?q=';
+
+  globalUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=';
+  
+  constructor(private http: Http) { }
+
+  getData(city,country) {
+    return this.http.get(`${this.url}${city},${country}&units=imperial&APPID=${this.apiKey}`).pipe(map(res => res.json()));
   }
- 
-  /**
-  * Get the detailed information for an ID using the "i" parameter
-  * 
-  * @param {string} id imdbID to retrieve information
-  * @returns Observable with detailed information
-  */
-  getDetails(id) {
-    return this.http.get(`${this.url}?i=${id}&plot=full&apikey=${this.apiKey}`);
+
+  getGeo(lat, lon) {
+    return this.http.get(`${this.globalUrl}${lat}&lon=${lon}&units=imperial&APPID=${this.apiKey}`).pipe(map(res => res.json()));
   }
+
 }

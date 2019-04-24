@@ -5,7 +5,7 @@
   </ion-header>
 
 
-<ion-content padding>
+<ion-content padding color="light">
   <ion-buttons>
     <ion-button  expand="block" 
     fill="clear" routerLink="/home" class="buttonHome" ><ion-icon name="home"></ion-icon>Home</ion-button>
@@ -17,18 +17,88 @@
     fill="clear" routerLink="/settings" class="buttonSettings"><ion-icon name="cog"></ion-icon>Settings</ion-button>
 
   </ion-buttons>
-    <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" class="searchBar" placeholder="
-    Enter title" class="searchBar"></ion-searchbar>
-   
-    <ion-item>
-      <ion-label>Select Searchtype</ion-label>
-      <ion-select [(ngModel)]="type" (ionChange)="searchChanged($event)">
-        <ion-select-option value="">All</ion-select-option>
-        <ion-select-option value="movie">Movie</ion-select-option>
-        <ion-select-option value="series">Series</ion-select-option>
-        <ion-select-option value="episode">Episode</ion-select-option>
-      </ion-select>
-    </ion-item>
+
+
+    
+    <div class="notMobile">
+        <div [ngClass]="(ampm < 18)?'container':'container-night'">
+    
+          <div class="header">
+            <div class="city">{{cityName}}</div>
+            <div class="condition">{{weather}}</div>
+            <div class="temp">{{temp}}&deg;</div>
+          </div>
+          <div class="data">
+              <div>{{day}}</div>
+              <div class="high">{{tempMax}}&deg;</div>
+              <div class="low">{{tempMin}}&deg;</div>
+            </div>
+          </div>
+    </div>   
+
+    
+         <!-- <div class="notMobile">
+        <div [ngClass]="(ampm < 18)?'container':'container-night'">
+    
+          <div class="header">
+            <div class="city">{{cityName}}</div>
+            <div class="condition">{{weather}}</div>
+            <div class="temp">{{temp}}&deg;</div>
+          </div>
+           
+            <div class="data">
+            <div>{{day}}</div>
+            <div class="high">{{tempMax}}&deg;</div>
+            <div class="low">{{tempMin}}&deg;</div>
+          </div>
+    
+          <div class="line"></div>
+    
+          <div class="info">
+            <div class="label">
+              <p>Sunrise</p>
+              <p>Sunset</p>
+            </div>
+            
+            <div class="infoName">
+              <p>{{sunriseHour}}:{{sunriseMinute}}</p>
+              <p>{{sunsetHour}}:{{sunsetMinute}}</p>
+            </div>
+          </div>
+          <div class="info">
+            <div class="label">
+              <p>Humidity</p>
+              <p>Pressure</p>
+            </div>
+            
+            <div class="infoName">
+              <p>{{humidity}}</p>
+              <p>{{pressure}}</p>
+            </div>
+          </div>
+          <div class="info">
+            <div class="label">
+              <p>Wind Speed</p>
+              <p>Looks Like</p>
+            </div>
+            
+            <div class="infoName">
+              <p>{{windSpeed}}</p>
+              <p>{{looksLike}}</p>
+            </div>
+          </div>
+    
+          <div class="bottomLine"></div>
+    
+          <ion-fab class="changeBtn">
+            <ion-fab-button color="button" (click)="cityChange()">
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        
+    
+        </div>  
+      </div>
    
     <ion-list>
    
@@ -49,15 +119,14 @@
       </ion-item>
    
     </ion-list> 
-</ion-content>
+
 
 
 
  
  
 
- <!-- 
-<ion-tabs tabsPlacement="bottom">  
+ <ion-tabs tabsPlacement="bottom">  
     <ion-tab-bar >
       <ion-tab-button tab="home" routerLink='/home' routerDirection="root">
         <ion-icon name="calendar"></ion-icon>

@@ -1,5 +1,7 @@
 {
   "name": "G00357230_WeatherApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
