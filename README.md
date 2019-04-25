@@ -24,3 +24,7 @@ Make sure your in the folder G00357230_WeatherApp, then run the following:
 - Browser
 
 ![alt text](https://github.com/MarkReillyGMIT/G00357230_WeatherApp/blob/master/src/assets/images/Home1.PNG "Home Screen")
+
+![alt text](https://github.com/MarkReillyGMIT/G00357230_WeatherApp/blob/master/src/assets/images/Home2.PNG "Home Screen")
+
+![alt text](https://github.com/MarkReillyGMIT/G00357230_WeatherApp/blob/master/src/assets/images/Settings.PNG "Settings Screen")
