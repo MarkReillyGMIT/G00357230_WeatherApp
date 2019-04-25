@@ -10,6 +10,8 @@ The aim of this app is demonstrate the use of ionic's features to run a weather 
 
 `npm install -g ionic@latest cordova`
 
+`npm install --save-dev @angular-devkit/build-angular`
+
 ************************************************************************************
 
 ## Run
