@@ -14,5 +14,11 @@ The aim of this app is demonstrate the use of ionic's features to run a weather 
 
 ## Run
 Make sure your in the folder G00357230_WeatherApp, then run the following:
+
 -Browser
+
 `ionic serve`
+
+## Screenshots
+
+- Browser
