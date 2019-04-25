@@ -21,136 +21,60 @@
 
     
     <div class="notMobile">
+      <!--Displays the day time image if the time is less than 18(6pm) or display the night time image otherwirse-->
         <div [ngClass]="(ampm < 18)?'container':'container-night'">
     
           <div class="header">
             <div class="city">{{cityName}}</div>
+            <div class="country">{{country}}</div>
             <div class="condition">{{weather}}</div>
             <div class="temp">Temp: {{(temp)}}&deg;</div>
           </div>
+
+          <div class="info">
+              <div class="label">
+                <p>Day: {{day}}</p>
+              </div>
+            </div>  
+
+          <div class="lineOneOne"></div>
+
           <div class="data">
-              <div>{{day}}</div>
-              <div class="high">Max Temp: {{tempMax}}&deg;</div>
-              <div class="low">Min Temp: {{tempMin}}&deg;</div>
+              <div class="high">
+                <p>Max Temp: {{tempMax}}&deg;</p>
+                </div>
             </div>
+
+            <div class="lineOne"></div>
+
+            <div class="data">
+                <div class="low">
+                 <p> Min Temp: {{tempMin}}&deg;</p>
+                </div>
+              </div> 
           
 
-          <div class="line"></div>
+          <div class="lineTwo"></div>
+
 
           <div class="iconImg1"><img src="{{icon}}" alt="" class="iconImg" ></div>
+          
+
+          <div class="info">
+              <div class="label">
+                  <p>Looks Like: {{looksLike}}</p>
+              </div>
+            </div>
+
+            <div class="lineThree"></div>  
+            
+            <div class="info">
+              <div class="label">
+                <p>Wind Speed: {{windSpeed}}</p>
+              </div>
+            </div>     
           
       </div>
     </div>   
 
-    
-         <!-- <div class="notMobile">
-        <div [ngClass]="(ampm < 18)?'container':'container-night'">
-    
-          <div class="header">
-            <div class="city">{{cityName}}</div>
-            <div class="condition">{{weather}}</div>
-            <div class="temp">{{temp}}&deg;</div>
-          </div>
-           
-            <div class="data">
-            <div>{{day}}</div>
-            <div class="high">{{tempMax}}&deg;</div>
-            <div class="low">{{tempMin}}&deg;</div>
-          </div>
-    
-          <div class="line"></div>
-    
-          <div class="info">
-            <div class="label">
-              <p>Sunrise</p>
-              <p>Sunset</p>
-            </div>
-            
-            <div class="infoName">
-              <p>{{sunriseHour}}:{{sunriseMinute}}</p>
-              <p>{{sunsetHour}}:{{sunsetMinute}}</p>
-            </div>
-          </div>
-          <div class="info">
-            <div class="label">
-              <p>Humidity</p>
-              <p>Pressure</p>
-            </div>
-            
-            <div class="infoName">
-              <p>{{humidity}}</p>
-              <p>{{pressure}}</p>
-            </div>
-          </div>
-          <div class="info">
-            <div class="label">
-              <p>Wind Speed</p>
-              <p>Looks Like</p>
-            </div>
-            
-            <div class="infoName">
-              <p>{{windSpeed}}</p>
-              <p>{{looksLike}}</p>
-            </div>
-          </div>
-    
-          <div class="bottomLine"></div>
-    
-          <ion-fab class="changeBtn">
-            <ion-fab-button color="button" (click)="cityChange()">
-                <ion-icon name="add"></ion-icon>
-            </ion-fab-button>
-          </ion-fab>
-        
-    
-        </div>  
-      </div>
-   
-    <ion-list>
-   
-      <ion-item button *ngFor="let item of (results | async)" routerLink="['/', 'movies', item.imdbID]">
-        <ion-avatar slot="start">
-          <img [src]="item.Poster" *ngIf="item.Poster != 'N/A'">
-        </ion-avatar>
-   
-        <ion-label text-wrap>
-          <h3>{{ item.Title }}</h3>
-          {{ item.Year }}
-        </ion-label>
-   
-        <ion-icon slot="end" *ngIf="item.Type == 'movie'" name="videocam"></ion-icon>
-        <ion-icon slot="end" *ngIf="item.Type == 'series'" name="tv"></ion-icon>
-        <ion-icon slot="end" *ngIf="item.Type == 'game'" name="logo-game-controller-b"></ion-icon>
-   
-      </ion-item>
-   
-    </ion-list> 
-
-
-
-
- 
- 
-
- <ion-tabs tabsPlacement="bottom">  
-    <ion-tab-bar >
-      <ion-tab-button tab="home" routerLink='/home' routerDirection="root">
-        <ion-icon name="calendar"></ion-icon>
-        <ion-label>Home</ion-label>
-        <ion-badge>6</ion-badge>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="about" routerLink='/about' routerDirection="root">
-        <ion-icon name="information-circle"></ion-icon>
-        <ion-label>About</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="settings" routerLink='/settings' routerDirection="root">
-        <ion-icon name="cog"></ion-icon>
-        <ion-label>Settings</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>-->
-  
-
-
+</ion-content>

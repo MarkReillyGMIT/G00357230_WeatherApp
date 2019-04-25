@@ -26,18 +26,18 @@
             <form (ngSubmit)="saveForm()">
               <ion-item>
                 <ion-label fixed>
-                    City
+                    City: 
                 </ion-label>
                 <ion-input [(ngModel)]="city" name="city" type="text"></ion-input>
               </ion-item>
 
               <ion-item>
                 <ion-label fixed>
-                      Country
+                      Country: 
                 </ion-label>
                 <ion-input [(ngModel)]="country" name="country" type="text"></ion-input>
               </ion-item>
-              <button ion-button type="Submit"  expand="block" fill="clear" class="submitButton">Save Changes</button>
+              <button ion-button type="Submit"  expand="block" fill="clear" class="submitButton"><ion-icon name="save"></ion-icon>Save Changes</button>
             </form>
           </ion-list>
         </ion-col>

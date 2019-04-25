@@ -28,23 +28,20 @@
   color: white;
   font-family: 'Montserrat', sans-serif;
   animation: clouds 5000ms infinite;
-  background-image: linear-gradient(to bottom, transparent, rgba(196, 222, 255, 0.623)), url(../../../assets/images/day-clear-clouds.jpeg);
+  background-image: linear-gradient(to bottom, transparent, rgba(196, 222, 255, 0.623)), url(../../../assets/images/clouds-dayTime.jpg);
   -webkit-animation: clouds 200s linear infinite;
+  background-size: 50%;
+
 }
 
 .container-night {
   color: white;
   font-family: 'Montserrat', sans-serif;
   animation: clouds 5000ms infinite;
-  background-image: linear-gradient(to bottom, transparent, rgba(196, 222, 255, 0.623)), url(../../../assets/images/clouds-ight.jpg);
+  background-image: linear-gradient(to bottom, transparent, rgba(196, 222, 255, 0.623)), url(../../../assets/images/nightsky.jpg);
   -webkit-animation: clouds 200s linear infinite;
+  background-size: 50%;
 }
-
-// // Background Animation
-// @-webkit-keyframes clouds {
-//   from { background-position: -400px 1px }
-//   to { background-position: 0 0 }
-// }
 
 .header {
   display: flex;
@@ -55,6 +52,12 @@
 .city {
   margin-top: 1.2em;
   font-size: 3.2em;
+  font-weight: bolder;
+}
+
+.country {
+  margin-top: .2em;
+  font-size: 1.2em;
   font-weight: bolder;
 }
 
@@ -70,26 +73,44 @@
 
 .data {
   display: flex;
-  justify-content: flex-start;
-  margin: 3em 1em;
-  justify-content: space-between;
-  font-size: 1.5em;
-  transform: translateY(-2em);
+  justify-content: space-around;
+  height: 2em;
+  align-items: center;
+  margin-left: 1.3em;
+  margin-bottom: 1.1em;  
 }
-.high{
-    align-items: center;
-    margin-top: .5em;
+.high p{
+  justify-content: space-around;
+  width: 10em;
+  text-align: center;
+  font-size: 2.5em;
 }
-.left{
-    align-items: center;
-    margin-top: .5em;
+.low p{
+  justify-content: space-around;
+  width: 10em;
+  text-align: center;
+  font-size: 2.5em;
 }
 
-.line {
-  margin: -5.8em auto 0;
+.lineOneOne {
+  margin: 3em auto;
   height: .2em;
   background: white;
-  width: 95%;
+  width: 60%;
+}
+
+.lineOne {
+  margin: 3em auto;
+  height: .2em;
+  background: white;
+  width: 60%;
+}
+
+.lineTwo {
+  margin: 3em auto ;
+  height: .2em;
+  background: white;
+  width: 60%;
 }
 
 .info {
@@ -107,6 +128,8 @@
 
 .label p{
   width: 10em;
+  text-align: center;
+  font-size: 2.5em;
 }
 
 .infoName {
@@ -115,19 +138,21 @@
   height: 2em;
   align-items: center;
   margin-left: 1.3em;
+  text-align: center;
 }
 
 .infoName p {
-  font-size: 1.5em;
+  font-size: 2.5em;
   width: 10em;
 }
-
-.bottomLine {
+.lineThree {
   height: .25em;
   background: white;
-  width: 95%;
-  margin: 1em auto;
+  width: 60%;
+  margin: 3em auto;
 }
+
+
 
 .changeBtn {
   display: block;
