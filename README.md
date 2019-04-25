@@ -28,3 +28,12 @@ Make sure your in the folder G00357230_WeatherApp, then run the following:
 ![alt text](https://github.com/MarkReillyGMIT/G00357230_WeatherApp/blob/master/src/assets/images/Home2.PNG "Home Screen")
 
 ![alt text](https://github.com/MarkReillyGMIT/G00357230_WeatherApp/blob/master/src/assets/images/Settings.PNG "Settings Screen")
+
+*****************************************************************************************
+
+## Features
+- Open Weather Map Api
+- Reads JSON data from external URL
+- Navigation Between Pages
+- Changing Icons based on Weather Type
+
