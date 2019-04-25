@@ -26,14 +26,20 @@
           <div class="header">
             <div class="city">{{cityName}}</div>
             <div class="condition">{{weather}}</div>
-            <div class="temp">{{temp}}&deg;</div>
+            <div class="temp">Temp: {{(temp)}}&deg;</div>
           </div>
           <div class="data">
               <div>{{day}}</div>
-              <div class="high">{{tempMax}}&deg;</div>
-              <div class="low">{{tempMin}}&deg;</div>
+              <div class="high">Max Temp: {{tempMax}}&deg;</div>
+              <div class="low">Min Temp: {{tempMin}}&deg;</div>
             </div>
-          </div>
+          
+
+          <div class="line"></div>
+
+          <div class="iconImg1"><img src="{{icon}}" alt="" class="iconImg" ></div>
+          
+      </div>
     </div>   
 
     

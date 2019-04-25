@@ -1,27 +1,47 @@
-<ion-tabs>
-    <ion-tab-bar slot="top" color="primary">
-      <ion-label>Settings</ion-label>
-    </ion-tab-bar>
-  </ion-tabs>
+<ion-header>
+    <ion-toolbar color="primary" class="toolbar">
+      <ion-label >Settings</ion-label>
+    </ion-toolbar>
+  </ion-header>
+
   
+  <ion-content padding color="light" class="content">
+
+      <ion-buttons>
+          <ion-button  expand="block" 
+          fill="clear" routerLink="/home" class="buttonHome" ><ion-icon name="home"></ion-icon>Home</ion-button>
+      
+          <ion-button expand="full"
+          fill="clear" routerLink="/about" class="buttonAbout"><ion-icon name="information-circle"></ion-icon>About</ion-button>
+      
+          <ion-button  expand="block"
+          fill="clear" routerLink="/settings" class="buttonSettings"><ion-icon name="cog"></ion-icon>Settings</ion-button>
+      
+        </ion-buttons>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col width-100> 
+          <ion-list>
+            <form (ngSubmit)="saveForm()">
+              <ion-item>
+                <ion-label fixed>
+                    City
+                </ion-label>
+                <ion-input [(ngModel)]="city" name="city" type="text"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label fixed>
+                      Country
+                </ion-label>
+                <ion-input [(ngModel)]="country" name="country" type="text"></ion-input>
+              </ion-item>
+              <button ion-button type="Submit"  expand="block" fill="clear" class="submitButton">Save Changes</button>
+            </form>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
   
-  
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home" routerLink='/home' routerDirection="root">
-        <ion-icon name="calendar"></ion-icon>
-        <ion-label>Home</ion-label>
-        <ion-badge>6</ion-badge>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="about" routerLink='/about' routerDirection="root">
-        <ion-icon name="information-circle"></ion-icon>
-        <ion-label>About</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="settings" routerLink='/settings' routerDirection="root">
-        <ion-icon name="cog"></ion-icon>
-        <ion-label>Settings</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>

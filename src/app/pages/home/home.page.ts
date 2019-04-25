@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { SettingsPage } from '../settings/settings.page'
+import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -42,58 +43,73 @@ export class HomePage implements OnInit {
   constructor(private storage: Storage,
               private service: WeatherServicePage,
               private router: Router,
-              private modal: ModalController) {}
+              private modal: ModalController,
+              public navCtrl: NavController) {}
 
 
   ionViewWillEnter(){
-    this.location = {
-      city: 'Galway',
-      country: 'Ire'
-    }
+    this.storage.get('location').then((val) =>{
+      if(val != null){
+        this.location =JSON.parse(val);
+      }else{
+        this.location = {
+          city: 'Galway',
+          country: 'IE'
+        }
+      }
+      this.service.getData(this.location.city,this.location.country).subscribe((res:any) => {
+        console.log('getData',res);
+        this.cityName = res.name;
+        this.country = res.sys.country;
+        this.weather = res.weather[0].main;
+        this.icon = 'http://openweathermap.org/img/w/'+res.weather[0].icon+'.png';
+        this.temp = ((res.main.temp-32)* 5/9).toFixed(1);
+        this.tempMax = ((res.main.temp_max-32)* 5/9).toFixed(1);
+        this.tempMin = ((res.main.temp_min-32)* 5/9).toFixed(1);
+      });
+    });
+  }
+
+
+
+
+    
 
     //this.service.getData(this.location.city, this.location.country).subscribe(weather => { this.weather = weather.current_observation;
     //})
-    this.service.getData(this.location.city,this.location.country).subscribe((res:any) => {
-    console.log('getData',res);
-    this.cityName = res.name;
-    this.country = res.sys.country;
-    this.weather = res.weather[0].main;
-    this.icon = 'http://openweathermap.org/img/w/'+res.weather[0].icon+'.png';
-    this.temp = res.main.temp.toFixed(1);
-    this.tempMax = res.main.temp_max.toFixed(1);
-    this.tempMin = res.main.temp_min.toFixed(1);});
-  }
+    
+  
 
       
 
-   // Get location.
-   getLocation() {
-   this.service.getGeo(32.715736, -117.161087).subscribe
-   ((res: any) => {
-    console.log('geoLocation',res);
-    })
+  //  // Get location.
+  //  getLocation() {
+  //  this.service.getGeo(32.715736, -117.161087).subscribe
+  //  ((res: any) => {
+  //   console.log('geoLocation',res);
+  //   })
 
-    }
+  //   }
 
-  // Show Modal
-  async cityChange() {
-    const modal = await this.modal.create({
-      component: SettingsPage,
-    });
+  // // Show Modal
+  // async cityChange() {
+  //   const modal = await this.modal.create({
+  //     component: SettingsPage,
+  //   });
 
-    // Reload page once modal closes
-    modal.onDidDismiss().then (_ => {
-      this.ngOnInit();
-    })
+  //   // Reload page once modal closes
+  //   modal.onDidDismiss().then (_ => {
+  //     this.ngOnInit();
+  //   })
   
     
-    return await modal.present();
-  }
+  //   return await modal.present();
+  // }
 
-  getTimeOfDay() {
-    let time = new Date().getHours();
-    this.ampm = time;
-  }
+  // getTimeOfDay() {
+  //   let time = new Date().getHours();
+  //   this.ampm = time;
+  // }
  
   
 
