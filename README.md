@@ -8,7 +8,7 @@ The aim of this app is demonstrate the use of ionic's features to run a weather 
 - Clone this Repository
 - Install Ionic and cordova
 
-`npm installl -g ionic@latest cordova`
+`npm install -g ionic@latest cordova`
 
 ************************************************************************************
 
